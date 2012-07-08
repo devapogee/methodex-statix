@@ -1,6 +1,5 @@
 public final class Methodex {
 	public static void main(String [] args){
-		//System.out.println(cEncryptionDecryption(cEncryptionDecryption("Salut, acest mesaj este criptat","key1"),"key1"));
 		try{
 			
 			if(args[0].equals("prime"))
@@ -12,11 +11,18 @@ public final class Methodex {
 				System.out.println(binaryDecode(args[1]));
 			else if(args[0].equals("encode"))
 				System.out.println(binaryEncode(args[1]));
+			else if(args[0].equals("encrypt"))
+				System.out.println(cEncryptDecrypt(args[1],args[2]));
+			else
+				throw new Exception();
 		
 		}catch(Exception e){
 			System.out.println("Sintax should be: prime 87" +
 					"\n\t\t  decode 100010110" +
-					"\n\t\t  encode \"hello world\"");
+					"\n\t\t  encode \"hello world\"" +
+					"\n\t\t  encrypt \"message to encrypt\" \"encrypting key\"" +
+					"\n\t\t  **Encrypting a message twice with the same key will decrypt it.");
+			
 		}		
 	}
 	public static final String binaryEncode(String str){
@@ -45,7 +51,7 @@ public final class Methodex {
 				return false;
 		return true;
 	}
-	public static final String cEncryptionDecryption(String _message,String _key){
+	public static final String cEncryptDecrypt(String _message,String _key){
 		/**Note: Encrypting the message twice with the same key will make it unencrypted. **/
 		String encryptedDecryptedMessage="";
 		String binaryMessage=binaryEncode(_message),binaryKey=binaryEncode(_key);
