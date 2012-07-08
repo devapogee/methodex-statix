@@ -1,5 +1,6 @@
 public final class Methodex {
 	public static void main(String [] args){
+		//System.out.println(cEncryptionDecryption(cEncryptionDecryption("Salut, acest mesaj este criptat","key1"),"key1"));
 		try{
 			
 			if(args[0].equals("prime"))
@@ -43,5 +44,17 @@ public final class Methodex {
 			if(no%i==0)
 				return false;
 		return true;
+	}
+	public static final String cEncryptionDecryption(String _message,String _key){
+		/**Note: Encrypting the message twice with the same key will make it unencrypted. **/
+		String encryptedDecryptedMessage="";
+		String binaryMessage=binaryEncode(_message),binaryKey=binaryEncode(_key);
+		for(int i=0,j=0;i<binaryMessage.length();i++,j++){
+			if(j==binaryKey.length())
+				j=0;
+				encryptedDecryptedMessage=encryptedDecryptedMessage.concat(""+(Byte.parseByte(""+binaryMessage.charAt(i))^Byte.parseByte(""+binaryKey.charAt(j))));
+			
+		}
+		return binaryDecode(encryptedDecryptedMessage);
 	}
 }
