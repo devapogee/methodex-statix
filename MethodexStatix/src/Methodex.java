@@ -58,7 +58,7 @@ public final class Methodex {
 		for(int i=0,j=0;i<binaryMessage.length();i++,j++){
 			if(j==binaryKey.length())
 				j=0;
-				encryptedDecryptedMessage=encryptedDecryptedMessage.concat(""+(Byte.parseByte(""+binaryMessage.charAt(i))^Byte.parseByte(""+binaryKey.charAt(j))));
+			encryptedDecryptedMessage=encryptedDecryptedMessage.concat(""+(Byte.parseByte(""+binaryMessage.charAt(i))^Byte.parseByte(""+binaryKey.charAt(j))));
 			
 		}
 		return binaryDecode(encryptedDecryptedMessage);
