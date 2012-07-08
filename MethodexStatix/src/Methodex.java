@@ -1,4 +1,3 @@
-package com.devapogee.methodexstatix;
 public final class Methodex {
 	public static void main(String [] args){
 		try{
